@@ -4,3 +4,8 @@ spring:
     password: Yasuomvp131213
     url: jdbc:mysql://workout996.icu:3306/course
 
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000
+

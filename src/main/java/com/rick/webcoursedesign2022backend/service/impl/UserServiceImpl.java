@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -31,5 +33,16 @@ public class UserServiceImpl implements UserService {
         String encode = passwordEncoder.encode(user.getPassword());
         user.setPassword(encode);
         userMapper.insert(user);
+    }
+
+    @Override
+    public List<User> selectAllTeachers() {
+        return userMapper.selectList(new QueryWrapper<User>().eq("isT","Y"));
+    }
+
+    @Override
+    public void selectOneTeacher(String teacherCardNumber, String studentCardNumber) {
+        userMapper.selectOneTeacherRelationShip(teacherCardNumber,studentCardNumber);
+        userMapper.selectOneTeacher(teacherCardNumber);
     }
 }

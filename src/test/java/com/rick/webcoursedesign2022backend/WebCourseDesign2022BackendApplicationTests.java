@@ -16,12 +16,12 @@ class WebCourseDesign2022BackendApplicationTests {
     @Test
     void contextLoads() {
         User user = new User();
-        user.setCardNumber("2019214081");
-        user.setPassword("Yasuomvp131213");
-        user.setName("yasuo");
-        user.setTotal(0);
+        user.setCardNumber("2222222222");
+        user.setPassword("131213");
+        user.setName("rick");
+        user.setTotal(5);
         user.setSelected(0);
-        user.setIst("N");
+        user.setIst("1");
         userService.insertOneUser(user);
     }
 
@@ -29,6 +29,11 @@ class WebCourseDesign2022BackendApplicationTests {
     void test1(){
         User user = userService.selectUserByCardNumber("2019214081");
         System.out.println(user);
+    }
+
+    @Test
+    void test2(){
+        System.out.println(userService.selectAllTeachers());
     }
 
 }
